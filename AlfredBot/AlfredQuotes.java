@@ -1,4 +1,5 @@
 import java.util.Date;
+
 public class AlfredQuotes {
     
     public String basicGreeting() {
@@ -6,23 +7,25 @@ public class AlfredQuotes {
     }
     
     public String guestGreeting(String name) {
-        // YOUR CODE HERE
-        return "place holder for guest greeting return string";
+        return String.format("Hello,%s. Lovely to see you.", name);
     }
     
     public String dateAnnouncement() {
-        // YOUR CODE HERE
-        return "place holder for date announcement return string";
+        Date date = new Date();
+        return "It is currently " + date;
     }
     
     public String respondBeforeAlexis(String conversation) {
-        // YOUR CODE HERE
-        return "for snarky response return string";
+        int a = conversation.indexOf("Alexis");
+        int b = conversation.indexOf("Alfred");
+        if (a > -1) {
+            return "Right away, sir. She cartainly isn't sophisticated enough for that.";
+        }
+        else if (b > -1) {
+            return "At your service. As you wish, naturally.";
+        }
+        return "Right. And with that I shall retire";
     }
-    
-	// NINJA BONUS
-	// See the specs to overload the guessGreeting method
-    // SENSEI BONUS
-    // Write your own AlfredQuote method using any of the String methods you have learned!
+
 }
 
