@@ -5,8 +5,7 @@ import java.util.List;
 public class TestCafe {
   public static void main(String[] args) {
 
-    CafeUtil cafe = new CafeUtil();
-    /* ============ App Test Cases ============= */
+    CafeUtil cafe = new CafeUtil(); //CafeUtil here is now a DATATYPE(we created it)
 
     System.out.println("\n----- Streak Goal Test -----");
     System.out.printf("Purchases needed by week 10: %s \n\n", cafe.getStreakGoal());

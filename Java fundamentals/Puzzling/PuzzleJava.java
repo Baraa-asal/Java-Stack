@@ -2,6 +2,7 @@ import java.util.Random;
 import java.util.ArrayList;
 
 public class PuzzleJava {
+    
     public ArrayList<Integer> getTenRolls(){
         ArrayList<Integer> myarray = new ArrayList<Integer>();
         Random myRandom = new Random();
