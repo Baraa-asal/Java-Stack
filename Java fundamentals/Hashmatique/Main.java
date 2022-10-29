@@ -16,8 +16,7 @@ public class Main {
         System.out.println(trackLyrics);
         Set<String> keys = tracks.keySet();
         for(String key : keys) {
-            System.out.println(key);
-            System.out.println(tracks.get(key));    
+            System.out.println(key + ": " + tracks.get(key));    
         }
     }
 }
