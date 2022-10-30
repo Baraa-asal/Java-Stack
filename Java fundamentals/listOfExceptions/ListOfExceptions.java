@@ -12,7 +12,8 @@ class ListOfExceptions {
             try {
                 Integer castedValue = (Integer) myList.get(i);
                 System.out.println(castedValue);
-            } catch (ClassCastException exception) {
+            }
+            catch (ClassCastException exception) {
                 System.out.println(exception);
             }
         }
