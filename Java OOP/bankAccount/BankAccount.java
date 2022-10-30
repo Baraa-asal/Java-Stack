@@ -10,9 +10,7 @@ public class BankAccount {
     private static double totalAmountOfMoney = 0.0;
 
     public BankAccount() {
-        this.checkingBalance = 0.0;
-        this.savingsBalance = 0.0;
-        BankAccount.totalAmountOfMoney++;
+        this(0,0);
     }
 
     public BankAccount(double checkingBalance, double savingsBalance) {
