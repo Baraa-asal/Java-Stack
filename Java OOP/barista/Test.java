@@ -2,42 +2,29 @@ public class Test {
     public static void main(String[] args) {
         // creating 4 item varibles of type Item as Item objects with assigning valus to
         // their attributes
-        Item item1 = new Item();
-        item1.setName("mocha");
-        item1.setPrice(1.5);
-        Item item2 = new Item();
-        item2.setName("latte");
-        item2.setPrice(2.5);
-        Item item3 = new Item();
-        item3.setName("drip cofee");
-        item3.setPrice(3.5);
-        Item item4 = new Item();
-        item4.setName("capuccino");
-        item4.setPrice(4.5);
+        Item item1 = new Item("mocha", 1.5);
+        Item item2 = new Item("latte", 2.5);
+        Item item3 = new Item("drip coffee", 3.5);
+        Item item4 = new Item("capuccino", 4.5);
         // --------------------------------------------
 
         // Create 4 order variables of type Order as Order objects
-        Order order1 = new Order();
-        order1.setName("Baraa");
+        Order guestOrder = new Order();
 
-        Order order2 = new Order();
-        order2.setName("Mostafa");
-        order2.items.add(item1);
-        // order2.total += item1.getPrice();
+        Order order1 = new Order("Baraa");
+        order1.addItem(item3);
+
+        Order order2 = new Order("Mostafa");
+        order2.addItem(item1);
         order2.setReady(true);
 
-        Order order3 = new Order();
-        order3.setName("Abed");
-        order3.items.add(item4);
-        // order3.total += item4.getPrice();
+        Order order3 = new Order("Abed");
+        order3.addItem(item2);
         order3.items.add(item2);
         order3.items.add(item2);
-        // order3.total += (item2.getPrice()) * 2;
 
-        Order order4 = new Order();
-        order4.setName("Mohammad");
-        order4.items.add(item2);
-        // order4.total += item2.getPrice();
+        Order order4 = new Order("Mohammad");
+        order4.addItem(item4);
         order4.setReady(true);
         // --------------------------------------------
 

@@ -2,17 +2,19 @@ import java.util.ArrayList;
 
 public class Order {
     private String name;
-    // private double total;
     private boolean ready;
     ArrayList<Item> items;
 
     public Order() {
         this.name = "guest";
-        items = new ArrayList<Item>();
+        this.ready = false;
+        this.items = new ArrayList<>();
     }
 
     public Order(String name) {
         this.name = name;
+        this.ready = false;
+        this.items = new ArrayList<>();
     }
 
     // getter for name field
@@ -31,12 +33,20 @@ public class Order {
     }
 
     // setter for ready field
-    public void setReady(boolean ready) {
+    public void setReady(Boolean ready) {
         this.ready = ready;
     }
 
     public void addItem(Item item) {
         this.items.add(item);
+    }
+
+    public ArrayList<Item> getItem() {
+        return items;
+    }
+
+    public void setItem(ArrayList<Item> items) {
+        this.items = items;
     }
 
     public String getStatusMessage() {
@@ -47,16 +57,17 @@ public class Order {
         }
     }
 
-    public void display(Item item){
+    public void display(Item item) {
         System.out.printf("Customer Name: %s\n", this.getName());
-        for(Item i : items){
-        System.out.println(i.getName() + " - $" + i.getPrice());
-        System.out.printf("Total: %s\n", this.getOrderTotal());
+        for (Item i : items) {
+            System.out.println(i.getName() + " - $" + i.getPrice());
+            System.out.printf("Total: %s\n", this.getOrderTotal());
         }
     }
+
     public double getOrderTotal() {
         int total = 0;
-        for(Item i : items){
+        for (Item i : items) {
             total += i.getPrice();
         }
         return total;
