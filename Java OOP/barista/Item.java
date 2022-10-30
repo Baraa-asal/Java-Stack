@@ -3,9 +3,10 @@ public class Item {
   private double price;
 
   //two parameter constructor
-  public Item(){
-    
+  public Item(){ 
+    this("item", 0.0);
   }
+
 	public Item(String name, double price) {
     this.name = name;
     this.price = price;
