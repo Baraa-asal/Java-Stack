@@ -1,17 +1,18 @@
 package coffeeDore;
+
 public class Item {
   private String name;
   private double price;
 
-  //two parameter constructor
-  public Item(){ 
+  // two parameter constructor
+  public Item() {
     this("item", 0.0);
   }
 
-	public Item(String name, double price) {
+  public Item(String name, double price) {
     this.name = name;
     this.price = price;
-	}
+  }
 
   // getter for name field
   public String getName() {
