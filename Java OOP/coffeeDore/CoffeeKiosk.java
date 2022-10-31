@@ -3,6 +3,7 @@ package coffeeDore;
 import java.util.ArrayList;
 
 public class CoffeeKiosk {
+
     private ArrayList<Item> menu;
     private ArrayList<Order> orders;
 
@@ -38,8 +39,9 @@ public class CoffeeKiosk {
             order.addItem(this.menu.get(Integer.parseInt(itemNumber)));
             System.out.println("Please enter a menu item index or q to quit:");
             itemNumber = System.console().readLine();
+            order.display();
         }
-        order.display();
+
     }
 
 }

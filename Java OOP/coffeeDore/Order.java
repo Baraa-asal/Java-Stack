@@ -59,7 +59,7 @@ public class Order {
         }
     }
 
-    public void display(Item item) {
+    public void display() {
         System.out.printf("Customer Name: %s\n", this.getName());
         for (Item i : items) {
             System.out.println(i.getName() + " - $" + i.getPrice());
