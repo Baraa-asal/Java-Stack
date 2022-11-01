@@ -2,12 +2,15 @@ package com.daikichi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
+@Controller
 public class HelloHumanApplication {
 
 	public static void main(String[] args) {
@@ -15,8 +18,9 @@ public class HelloHumanApplication {
 	}
 	
 	@RequestMapping("/") 
-	public String hello() {
-		return "Hello Dear";
+	public String index(Model model) {
+		model.addAttribute("fruit", "banana");
+		return "index.jsp";
 	}
 	
 	@RequestMapping("/name")
@@ -28,4 +32,5 @@ public class HelloHumanApplication {
 			return "You searched for: " + parameter1;
 		}
 	}
+	
 }
