@@ -1,4 +1,4 @@
-package com.counter;
+package comt.counter.controllers;
 
 import javax.servlet.http.HttpSession;
 
