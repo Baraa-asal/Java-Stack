@@ -1,3 +1,4 @@
+// THIS PROJECT HAS THE SOLUTION FOR BOTH ZOO KEEPER PART 1 AND 2 
 
 public class Mammal {
 	protected int energyLevel;

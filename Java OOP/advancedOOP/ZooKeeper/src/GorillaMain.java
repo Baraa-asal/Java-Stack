@@ -1,5 +1,6 @@
+// THIS PROJECT HAS THE SOLUTION FOR BOTH ZOO KEEPER PART 1 AND 2 
 
-public class Main {
+public class GorillaMain {
 	public static void main(String[] args) {
 		Gorilla gorilla = new Gorilla();
 		gorilla.displayEnergy();
