@@ -1,7 +1,6 @@
 package com.abstractart;
 
 import java.util.ArrayList;
-
 public class Museum {
 
 	public static void main(String[] args) {
@@ -26,14 +25,14 @@ public class Museum {
 		
 		museum.add(painting1);
 		museum.add(painting2);
-		museum.add(painting2);
+		museum.add(painting3);
 		museum.add(sculpture1);
 		museum.add(sculpture2);
-		System.out.println(museum);
-		//I tried to do the bonus but it doesnt print the arraylist
-		for (int i = 0; i < museum.size(); i++) {
-		      System.out.println(museum.get(i));
-		    }
+
+		System.out.println("________the arraylist:_________");
+		for(Art artwork : museum) {
+			artwork.viewArt();
+		}
 	}
 
 }
