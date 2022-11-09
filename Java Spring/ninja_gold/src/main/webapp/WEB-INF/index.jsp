@@ -11,8 +11,7 @@
 </head>
 <body class="container" style="font-family: cursive; padding:10%;">
 
-	<h4 class="mb-5"> Your Golds: <span class="border p-2"><c:out value="${gold}"></c:out></span></h4>
-	
+	<h4 class="mb-5"> Your Golds: <span class="border p-2"><c:out value="${golds}"></c:out></span></h4>
 	<div class="d-flex justify-content-around">
 		<div class="p-3 d-flex flex-column align-items-center" style="background-color: #b4de8d">
 			<h4 class="mb-3">Farm</h4>
@@ -46,6 +45,8 @@
 				<input type="submit" value="Find Gold!">
 			</form>
 		</div>
+			<c:out value="${activities}"/>
+		
 	</div>
 </body>
 </html>

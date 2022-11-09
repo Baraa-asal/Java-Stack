@@ -20,5 +20,10 @@
 	</div>
 	
 	<h5><a href="/books">Go back</a></h5>
+	
+	<form action="/books/${book.id}" method="POST">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete">
+</form>
 </body>
 </html>

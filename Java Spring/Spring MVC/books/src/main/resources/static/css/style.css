@@ -1,0 +1,16 @@
+@charset "windows-1256";
+
+.myTable {
+	width: 50%;
+	border: 2px black solid;
+	box-shadow: 5px 5px 8px #888888;
+	margin: 0 auto;
+	margin-bottom: 5%;
+}
+.head {
+	background-color: grey;
+}
+
+h4 {
+	text-align: center;
+}

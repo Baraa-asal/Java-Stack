@@ -13,8 +13,8 @@
 
 </head>
 <body class="pt-5">
-<table class="table">
-  <thead class="thead-dark myTable">
+<table class=" myTable">
+  <thead class="thead-dark head">
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Title</th>
@@ -33,5 +33,6 @@
     </c:forEach>
   </tbody>
 </table>
+<h4><a class="btn btn-outline-secondary" href="/books/new">Add new book</a></h4>
 </body>
 </html>

@@ -1,5 +1,4 @@
 package com.mvc.booksapi.models;
-
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -15,12 +14,10 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
-
 @Entity
 @Table(name="books")
-// those two tags tells Spring that we're gonna have a table named book, and that this is an entity, so it's gonna be related to a database
 public class Book {
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
@@ -42,24 +39,9 @@ public class Book {
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date updatedAt;
     
-    @PrePersist
-    protected void onCreate(){
-        this.createdAt = new Date();
+    public Book() {
     }
-    @PreUpdate
-    protected void onUpdate(){
-        this.updatedAt = new Date();
-    }
-	public Book() {
-		super();
-	}
-	public Book(String title, String description, String language, Integer numberOfPages) {
-		this.title = title;
-		this.description = description;
-		this.language = language;
-		this.numberOfPages = numberOfPages;
-	}
-	public Long getId() {
+    public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
@@ -89,19 +71,20 @@ public class Book {
 	public void setNumberOfPages(Integer numberOfPages) {
 		this.numberOfPages = numberOfPages;
 	}
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-	public Date getUpdatedAt() {
-		return updatedAt;
-	}
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-	}
+	public Book(String title, String desc, String lang, int pages) {
+        this.title = title;
+        this.description = desc;
+        this.language = lang;
+        this.numberOfPages = pages;
+    }
     
-   
-
+    // other getters and setters removed for brevity
+    @PrePersist
+    protected void onCreate(){
+        this.createdAt = new Date();
+    }
+    @PreUpdate
+    protected void onUpdate(){
+        this.updatedAt = new Date();
+    }
 }

@@ -12,11 +12,6 @@ public class OmikujiController {
 	
 	@RequestMapping("/")
 	public String index() {
-		return "redirect:/omikuji_form";
-	}
-	
-	@RequestMapping("/omikuji_form")
-	public String form() {
 		return "form.jsp";
 	}
 	@RequestMapping(value="/form_data", method = RequestMethod.POST)
@@ -36,10 +31,10 @@ public class OmikujiController {
 		session.setAttribute("living_thing", livingThing);
 		session.setAttribute("message", message);
 		
-		return "redirect:/show_form";
+		return "redirect:/show_omikuji";
 	}
 	
-	@RequestMapping("/show_form")
+	@RequestMapping("/show_omikuji")
 	public String show_form() {
 		return "show.jsp";
 	}
