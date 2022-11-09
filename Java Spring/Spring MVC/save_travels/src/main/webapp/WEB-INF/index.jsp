@@ -14,26 +14,33 @@
 <script type="text/javascript" src="js/script.js" defer></script>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
 </head>
-<body>
+<body style="font-family: cursive;">
 
 	<div class="container">
 		<h1>Save Travels</h1>
 		<table class="table table-striped table-bordered">
-			<thead >
+			<thead>
 				<tr>
 					<th class="text-center">Expense</th>
 					<th class="text-center">Vendor</th>
 					<th class="text-center">Amount</th>
+					<th class="text-center">Action</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="expense" items="${expenses}">
 					<tr>
-						<td class="text-center"><c:out value="${expense.name}"></c:out></td>
+						<td class="text-center"><a href="/expenses/${expense.id}"><c:out value="${expense.name}"></c:out></a></td>
 						<td class="text-center"><c:out value="${expense.vendor}"></c:out></td>
 						<td class="text-center">$<c:out value="${expense.amount}"></c:out></td>
-						<td class="text-center"><a href="/expenses/${expense.id}">Edit</a></td>
+						<td class="text-center d-flex justify-content-around"><a class="btn btn-info btn-sm mr-3"
+							href="/expenses/edit/${expense.id}">Edit</a>
+						<form:form action="/expenses/${expense.id}" method="post">
+						<input type="hidden" name="_method" value="delete">
+						<button type="submit" class="btn btn-danger btn-sm">Delete</button>
+						</form:form></td>
 					</tr>
+
 				</c:forEach>
 			</tbody>
 		</table>

@@ -4,6 +4,7 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -42,8 +43,8 @@ public class ExpenseController {
         }
 	}
 	//this is a method that renders jsp file because i want to edit an expense.
-	@GetMapping("/expenses/{id}")
-	public String  edit(Model model, @PathVariable("id") Long id) {
+	@GetMapping("/expenses/edit/{id}")
+	public String edit(Model model, @PathVariable("id") Long id) {
 		Expense currentExpense = expenseService.findExpense(id);
 		model.addAttribute("currentExpense", currentExpense);
 		return "editExpense.jsp";
@@ -56,6 +57,18 @@ public class ExpenseController {
 		System.out.println("hei");
 		expenseService.updateExpense(expense);
 		return "redirect:/";
+	}
+	@DeleteMapping("/expenses/{id}")
+    public String destroy(@PathVariable("id") Long id) {
+		expenseService.deleteExpense(id);
+        return "redirect:/expenses";
+    }
+	
+	@GetMapping("/expenses/{id}")
+	public String showExpenseDetails(Model model, @PathVariable("id") Long id) {
+		Expense expense = expenseService.findExpense(id);
+		model.addAttribute("expense", expense);
+		return "expenseDetails.jsp";
 	}
 	
 }

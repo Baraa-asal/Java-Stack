@@ -13,7 +13,7 @@
 <script type="text/javascript" src="js/script.js" defer></script>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
 </head>
-<body>
+<body class="mt-3" style="font-family: cursive;">
 
 
 		<h1>Edit Travels</h1>
