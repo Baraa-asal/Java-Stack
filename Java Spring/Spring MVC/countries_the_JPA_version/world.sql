@@ -3,7 +3,7 @@ USE `world`;
 -- MySQL dump 10.13  Distrib 5.5.24, for osx10.5 (i386)
 --
 -- Host: localhost    Database: world_2
--- ------------------------------------------------------
+-- --------------cities----------------------------------------
 -- Server version	5.5.25-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
