@@ -1,0 +1,9 @@
+@charset "windows-1256";
+
+* {
+	font-family: cursive;
+}
+
+body {
+	padding-top: 5%;
+}
