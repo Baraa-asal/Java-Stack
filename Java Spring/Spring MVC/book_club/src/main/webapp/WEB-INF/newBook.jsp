@@ -21,8 +21,8 @@
 			<div class="row">
 				<div class="col-10">
 					<h1>Add a Book to your shelf, ${ loggedInUser.userName }!</h1>
-					<form:form class="bg-info round p-3" action="/books/new" method="post" modelAttribute="newBook">
-
+					<form:form action="/books/new/" method="post" modelAttribute="newBook">
+					<form:input type="hidden" path="user" value="${loggedInUser.id}"></form:input>
 						<p class="form-group">
 							<form:label path="title">Book Title:</form:label>
 							<form:errors path="title" class="alert text-danger" />

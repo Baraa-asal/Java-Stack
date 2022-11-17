@@ -4,7 +4,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page isErrorPage="true"%>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +18,6 @@
 	<div class="container mt-2 mb-5 d-flex justify-content-between">
 		<div class="row">
 			<h1 style="color: #9900ff;">Welcome, ${loggedInUser.userName}!</h1>
-			
 		</div>
 		<div class="d-flex align-items-end flex-column">
 			<a class="mb-4" style="color: red;" href="/logout"><u>Logout</u></a>
@@ -38,39 +36,28 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="book" items="${ bookList }">
+				<c:forEach var="book" items="${ booklist }">
 					<tr>
 						<td>${ book.id }</td>
 						<td><a href="/books/${ book.id }"><u>${ book.title }</u></a></td>
 						<td>${ book.author }</td>
 						<td>${ book.user.userName }</td>
-						
-						
-						
+
+
+
 						<td class="row">
 							<!-- **************************** Button that points to Book View ****************************** -->
 							<div class="col">
 								<button class="btn btn-primary btn-sm round"
 									onclick="window.location.href='/books/${ book.id }';">View</button>
 							</div> <c:choose>
-								<c:when test="${user_id == book.user.id}">
-									<div class="col">
-										<button class="btn btn-warning btn-sm round"
-											onclick="window.location.href='/books/${ book.id }/edit';">Edit</button>
-									</div>
-									<!-- **** Button that deletes Book ************ -->
-									<form class="col" action="/books/${ book.id }/delete"
-										method="post">
-										<input type="hidden" name="_method" value="delete">
-										<!-- ### Converts method of form to DELETE ### -->
-										<button class="btn btn-danger btn-sm round">Delete</button>
-									</form>
+								<c:when test="${book.user.id == userId}">
+									<td><a href="/books/${book.id}/edit">edit</a> | <a
+										href="/delete/${book.id}">delete</a></td>
 								</c:when>
 							</c:choose>
 						</td>
-						
-						
-						
+
 					</tr>
 				</c:forEach>
 			</tbody>

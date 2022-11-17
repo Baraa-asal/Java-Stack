@@ -40,6 +40,7 @@ public class Book {
 	@Size(min=1, max=255, message="Thoughts must be one to two hundred fifty-five characters in length")
 	private String myThoughts;
 	
+	///////////////Connecting book to user, many books for one user/////////////////
 	//many-to-one relationship:
 	@ManyToOne( fetch = FetchType.LAZY )
 	@JoinColumn( name="user_id" )

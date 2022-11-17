@@ -1,4 +1,4 @@
-package com.mvc.bookclub.services;
+package com.mvc.javabeltexam.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,9 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
-import com.mvc.bookclub.models.LoginUser;
-import com.mvc.bookclub.models.User;
-import com.mvc.bookclub.repositories.UserRepository;
+import com.mvc.javabeltexam.models.LoginUser;
+import com.mvc.javabeltexam.models.User;
+import com.mvc.javabeltexam.repositories.UserRepository;
+
 
 @Service
 public class UserService {
@@ -87,21 +88,4 @@ public class UserService {
 	public List<User> allUsers() {
 		return userRepo.findAll();
 	}
-
-	// **** Retrieve User By ID ********************************
-
-	public User retrieveUser(Long id) {
-		Optional<User> optUser = this.userRepo.findById(id);
-		if (optUser.isPresent()) {
-			return optUser.get();
-		} else {
-			return null;
-		}
-	}
-	
-	
-	public void updateUser(User user) {
-		userRepo.save(user);
-	}
-
 }
