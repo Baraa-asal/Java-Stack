@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="/css/style.css">
-<title>${loggedInUser.userName}Profile</title>
+<title>${loggedInUser.userName} Profile</title>
 </head>
 <body style="font-family: cursive;">
 	<div class="container mt-2 mb-5 d-flex justify-content-between">
@@ -53,7 +53,7 @@
 							</div> <c:choose>
 								<c:when test="${book.user.id == userId}">
 									<td><a href="/books/${book.id}/edit">edit</a> | <a
-										href="/delete/${book.id}">delete</a></td>
+										href="/books/${book.id }/delete">delete</a></td>
 								</c:when>
 							</c:choose>
 						</td>

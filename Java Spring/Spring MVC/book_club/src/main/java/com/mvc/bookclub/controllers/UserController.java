@@ -101,7 +101,9 @@ public class UserController {
 			// for viewing the books in the main page:
 			List<Book> bookList = bookService.retrieveAll();
 			model.addAttribute("booklist", bookList);
+			///////////
 			model.addAttribute("userId", (Long) session.getAttribute("user_id"));
+			///////////
 			return "dashboard.jsp";
 		}
 		return "redirect:/";
@@ -123,9 +125,6 @@ public class UserController {
 			return "newBook.jsp";
 		}
 		bookService.create(newBook);
-//		User user = userService.retrieveUserById((Long) session.getAttribute("user_id"));
-//		user.getBookList().add(book);
-//		userService.updateUser(user);
 		return "redirect:/books";
 	}
 	
@@ -198,7 +197,6 @@ public class UserController {
     	this.bookService.delete(id);
     	return "redirect:/books";
     }
-	
 	
 
 }

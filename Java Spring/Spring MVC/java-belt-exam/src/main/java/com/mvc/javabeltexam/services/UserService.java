@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
 import com.mvc.javabeltexam.models.LoginUser;
+import com.mvc.javabeltexam.models.Team;
 import com.mvc.javabeltexam.models.User;
 import com.mvc.javabeltexam.repositories.UserRepository;
 
@@ -88,4 +89,12 @@ public class UserService {
 	public List<User> allUsers() {
 		return userRepo.findAll();
 	}
+	public void save(User loggedUser) {
+		// TODO Auto-generated method stub
+		userRepo.save(loggedUser);
+	}
+	
+	public List<User> getUsersNotOfTeam(Team team) {
+		return userRepo.findByTeamsNotContains(team);
+}
 }

@@ -1,20 +1,27 @@
 package com.mvc.javabeltexam.models;
 import java.util.Date;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
 
 @Entity
 @Table(name="users")
@@ -42,8 +49,47 @@ public class User {
     private String confirm;
     
 
-	@Column(updatable=false) 
+    ////////////  ONE - TO - MANY RELATIONSHIP ///////////////
+    //////////// One user for many teams ///////////////
+    @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
+    private List<Team> teamList;
+
+    
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+        name = "users_teams", 
+        joinColumns = @JoinColumn(name = "user_id"), 
+        inverseJoinColumns = @JoinColumn(name = "team_id")
+    )
+    private List<Team> teams;
+    
+   
+
+	public List<Team> getTeams() {
+		return teams;
+	}
+
+	public void setTeams(List<Team> teams) {
+		this.teams = teams;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public List<Team> getTeamList() {
+		return teamList;
+	}
+
+	
+	public void setTeamList(List<Team> teamList) {
+		this.teamList = teamList;
+	}
+	@Column(updatable=false)    // this will not allow createdAt to be updated after creation
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createdAt;
+	
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
 	
     public User() {

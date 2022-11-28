@@ -187,4 +187,6 @@ public class MainController {
 		categoryService.deleteCategory(id);
 		return "redirect:/";
 	}
+	
+	
 }
